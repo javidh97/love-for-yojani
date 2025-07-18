@@ -197,3 +197,4 @@ function crearTeAmo(x, y) {
     span.remove();
   }, 1200);
 }
+
