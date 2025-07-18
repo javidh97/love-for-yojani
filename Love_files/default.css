@@ -109,3 +109,28 @@ a {
 .space {
 	margin-right: 60px;
 }
+
+
+
+.te-amo {
+  position: absolute;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+  animation: desvanecer 1s ease-out forwards;
+  font-family: 'Arial', sans-serif;
+}
+
+@keyframes desvanecer {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
