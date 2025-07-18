@@ -154,3 +154,24 @@
 
     runAsync().start();
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const media = document.getElementById("media");
+
+  function iniciarAudio() {
+    media.play().then(() => {
+      console.log("🎵 Música reproduciéndose...");
+    }).catch(err => {
+      console.log("❌ El navegador bloqueó el audio:", err);
+    });
+
+    // Eliminar eventos después del primer intento
+    document.removeEventListener("click", iniciarAudio);
+    document.removeEventListener("touchstart", iniciarAudio);
+  }
+
+  // Escucha el primer clic o toque en la pantalla
+  document.addEventListener("click", iniciarAudio);
+  document.addEventListener("touchstart", iniciarAudio);
+});
+
