@@ -198,17 +198,20 @@ function crearTeAmo(x, y) {
   }, 1200);
 }
 
+//boton para reproducir la musica
 document.addEventListener("DOMContentLoaded", () => {
   const media = document.getElementById("media");
   const pantalla = document.getElementById("pantalla-inicial");
 
   function iniciar() {
     media.play().then(() => {
-      pantalla.style.display = "none";
+      pantalla.style.display = "none"; // 🔥 Esto oculta el fondo
       console.log("🎵 Música iniciada");
     }).catch(err => {
-      console.warn("⚠️ No se pudo reproducir:", err);
+      console.warn("⚠️ Error al reproducir audio:", err);
+      pantalla.style.display = "none"; // 👈 Esto asegura que se oculte incluso si falla
     });
+
     pantalla.removeEventListener("click", iniciar);
     pantalla.removeEventListener("touchstart", iniciar);
   }
@@ -216,3 +219,4 @@ document.addEventListener("DOMContentLoaded", () => {
   pantalla.addEventListener("click", iniciar);
   pantalla.addEventListener("touchstart", iniciar);
 });
+
