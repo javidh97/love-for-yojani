@@ -175,3 +175,28 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("touchstart", iniciarAudio);
 });
 
+//funcion para toques en la pantalla y aparesca un mensaje en la pantalla
+document.addEventListener("click", function (e) {
+  crearTeAmo(e.clientX, e.clientY);
+});
+
+document.addEventListener("touchstart", function (e) {
+  const touch = e.touches[0];
+  crearTeAmo(touch.clientX, touch.clientY);
+});
+
+function crearTeAmo(x, y) {
+  const span = document.createElement("span");
+  span.className = "te-amo";
+  span.textContent = "Te amo";
+  span.style.left = x + "px";
+  span.style.top = y + "px";
+  document.body.appendChild(span);
+
+  // Eliminarlo después de 1 segundo
+  setTimeout(() => {
+    span.remove();
+  }, 1000);
+}
+
+
