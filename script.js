@@ -204,13 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const pantalla = document.getElementById("pantalla-inicial");
 
   function iniciar() {
-    media.play().then(() => {
-      pantalla.style.display = "none"; // 🔥 Esto oculta el fondo
-      console.log("🎵 Música iniciada");
-    }).catch(err => {
-      console.warn("⚠️ Error al reproducir audio:", err);
-      pantalla.style.display = "none"; // 👈 Esto asegura que se oculte incluso si falla
+    media.play().catch(err => {
+      console.warn("⚠️ No se pudo reproducir el audio:", err);
     });
+
+    pantalla.style.display = "none"; // 🔥 Esto oculta la pantalla sí o sí
 
     pantalla.removeEventListener("click", iniciar);
     pantalla.removeEventListener("touchstart", iniciar);
@@ -219,4 +217,5 @@ document.addEventListener("DOMContentLoaded", () => {
   pantalla.addEventListener("click", iniciar);
   pantalla.addEventListener("touchstart", iniciar);
 });
+
 
