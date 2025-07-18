@@ -155,7 +155,7 @@
     runAsync().start();
 })();
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
   const media = document.getElementById("media");
 
   function iniciarAudio() {
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Escucha el primer clic o toque en la pantalla
   document.addEventListener("click", iniciarAudio);
   document.addEventListener("touchstart", iniciarAudio);
-});
+});*/
 
 //funcion para toques en la pantalla y aparesca un mensaje en la pantalla
 document.addEventListener("click", function (e) {
@@ -198,3 +198,21 @@ function crearTeAmo(x, y) {
   }, 1200);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const media = document.getElementById("media");
+  const pantalla = document.getElementById("pantalla-inicial");
+
+  function iniciar() {
+    media.play().then(() => {
+      pantalla.style.display = "none";
+      console.log("🎵 Música iniciada");
+    }).catch(err => {
+      console.warn("⚠️ No se pudo reproducir:", err);
+    });
+    pantalla.removeEventListener("click", iniciar);
+    pantalla.removeEventListener("touchstart", iniciar);
+  }
+
+  pantalla.addEventListener("click", iniciar);
+  pantalla.addEventListener("touchstart", iniciar);
+});
