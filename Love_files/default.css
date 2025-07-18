@@ -114,7 +114,7 @@ a {
 
 .te-amo {
   position: absolute;
-  font-size: 22px;
+  font-size: 6vw; /* escalará automáticamente según ancho de pantalla */
   font-family: 'Great Vibes', cursive;
   color: #e60073;
   pointer-events: none;
@@ -123,6 +123,7 @@ a {
   animation: desvanecer 1.2s ease-out forwards;
   white-space: nowrap;
   transform: translate(-50%, -50%);
+  z-index: 9999;
 }
 
 @keyframes desvanecer {
