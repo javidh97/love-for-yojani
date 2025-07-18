@@ -114,23 +114,24 @@ a {
 
 .te-amo {
   position: absolute;
-  font-size: 18px;
-  font-weight: bold;
-  color: red;
+  font-size: 22px;
+  font-family: 'Great Vibes', cursive;
+  color: #e60073;
   pointer-events: none;
   user-select: none;
   opacity: 1;
-  animation: desvanecer 1s ease-out forwards;
-  font-family: 'Arial', sans-serif;
+  animation: desvanecer 1.2s ease-out forwards;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes desvanecer {
   0% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translate(-50%, -70%) scale(1.2);
   }
 }
