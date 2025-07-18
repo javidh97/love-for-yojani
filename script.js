@@ -188,15 +188,12 @@ document.addEventListener("touchstart", function (e) {
 function crearTeAmo(x, y) {
   const span = document.createElement("span");
   span.className = "te-amo";
-  span.textContent = "Te amo";
+  span.textContent = "Te amo ❤️";
   span.style.left = x + "px";
   span.style.top = y + "px";
   document.body.appendChild(span);
 
-  // Eliminarlo después de 1 segundo
   setTimeout(() => {
     span.remove();
-  }, 1000);
+  }, 1200);
 }
-
-
