@@ -314,7 +314,10 @@ function crearTeAmo(x, y) {
   span.style.top = y + "px";
   document.body.appendChild(span);
 
+    setTimeout(() => {
+  span.classList.add("desaparecer");
   setTimeout(() => {
     span.remove();
-  }, 1200);
+  }, 1000); // Espera a que termine la animación CSS antes de removerlo
+}, 2000); // ⏳ Tiempo visible antes de empezar a desvanecerse (2 segundos
 }
