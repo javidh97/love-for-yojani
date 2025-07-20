@@ -275,13 +275,20 @@ const loveMessages = [
   "Te elijo cada día"
 ];
 
-document.addEventListener("click", function (e) {
-  crearTeAmo(e.clientX, e.clientY);
-});
+let ultimaInteraccionFueTouch = false;
 
 document.addEventListener("touchstart", function (e) {
+  ultimaInteraccionFueTouch = true;
   const touch = e.touches[0];
   crearTeAmo(touch.clientX, touch.clientY);
+});
+
+document.addEventListener("click", function (e) {
+  if (ultimaInteraccionFueTouch) {
+    ultimaInteraccionFueTouch = false;
+    return; // Evita doble ejecución
+  }
+  crearTeAmo(e.clientX, e.clientY);
 });
 
 function crearTeAmo(x, y) {
