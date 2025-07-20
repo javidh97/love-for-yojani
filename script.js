@@ -285,10 +285,24 @@ document.addEventListener("touchstart", function (e) {
 });
 
 function crearTeAmo(x, y) {
-  const message = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+  const loveMessages = [
+    "Te amo",
+    "Eres mi vida",
+    "Gracias por existir",
+    "Siempre tú",
+    "Mi corazón es tuyo",
+    "Tú y yo por siempre",
+    "Eres mi paz",
+    "Mi persona favorita",
+    "Contigo, todo",
+    "Te elijo cada día"
+  ];
+
+  const mensajeAleatorio = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+
   const span = document.createElement("span");
   span.className = "te-amo";
-  span.textContent = message;
+  span.textContent = mensajeAleatorio;
   span.style.left = x + "px";
   span.style.top = y + "px";
   document.body.appendChild(span);
