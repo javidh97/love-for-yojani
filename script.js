@@ -62,7 +62,17 @@
             canvas.unbind("click");
             canvas.unbind("mousemove");
             canvas.removeClass('hand');
-        }
+            
+        }// 🔊 Reproducir el audio cuando se toca el corazón
+const media = document.getElementById("media");
+if (media.paused) {
+  media.play().then(() => {
+    console.log("🎵 Música reproduciéndose desde el corazón...");
+  }).catch(err => {
+    console.log("❌ El navegador bloqueó el audio:", err);
+  });
+}
+        
     }).mousemove(function (e) {
         var offset = canvas.offset(), x, y;
         x = e.pageX - offset.left;
