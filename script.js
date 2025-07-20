@@ -155,7 +155,7 @@
     runAsync().start();
 })();
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
   const media = document.getElementById("media");
 
   function iniciarAudio() {
@@ -171,6 +171,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Escucha el primer clic o toque en la pantalla
+  document.addEventListener("click", iniciarAudio);
+  document.addEventListener("touchstart", iniciarAudio);
+});*/
+document.addEventListener("DOMContentLoaded", function () {
+  const media = document.getElementById("media");
+
+  function iniciarAudio() {
+    if (media.paused) {
+      media.play().then(() => {
+        console.log("🎵 Música reproduciéndose...");
+      }).catch(err => {
+        console.log("❌ El navegador bloqueó el audio:", err);
+      });
+    }
+
+    document.removeEventListener("click", iniciarAudio);
+    document.removeEventListener("touchstart", iniciarAudio);
+  }
+
   document.addEventListener("click", iniciarAudio);
   document.addEventListener("touchstart", iniciarAudio);
 });
