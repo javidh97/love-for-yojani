@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //funcion para toques en la pantalla y aparesca un mensaje en la pantalla
-document.addEventListener("click", function (e) {
+/*document.addEventListener("click", function (e) {
   crearTeAmo(e.clientX, e.clientY);
 });
 
@@ -254,6 +254,41 @@ function crearTeAmo(x, y) {
   const span = document.createElement("span");
   span.className = "te-amo";
   span.textContent = "Te amo ❤️";
+  span.style.left = x + "px";
+  span.style.top = y + "px";
+  document.body.appendChild(span);
+
+  setTimeout(() => {
+    span.remove();
+  }, 1200);
+}*/
+const loveMessages = [
+  "Te amo",
+  "Eres mi vida",
+  "Gracias por existir",
+  "Siempre tú",
+  "Mi corazón es tuyo",
+  "Tú y yo por siempre",
+  "Eres mi paz",
+  "Mi persona favorita",
+  "Contigo, todo",
+  "Te elijo cada día"
+];
+
+document.addEventListener("click", function (e) {
+  crearTeAmo(e.clientX, e.clientY);
+});
+
+document.addEventListener("touchstart", function (e) {
+  const touch = e.touches[0];
+  crearTeAmo(touch.clientX, touch.clientY);
+});
+
+function crearTeAmo(x, y) {
+  const message = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+  const span = document.createElement("span");
+  span.className = "te-amo";
+  span.textContent = message;
   span.style.left = x + "px";
   span.style.top = y + "px";
   document.body.appendChild(span);
