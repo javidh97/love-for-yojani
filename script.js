@@ -53,7 +53,7 @@
     var foot = tree.footer;
     var hold = 1;
 
-    canvas.click(function (e) {
+   /* canvas.click(function (e) {
         var offset = canvas.offset(), x, y;
         x = e.pageX - offset.left;
         y = e.pageY - offset.top;
@@ -78,7 +78,43 @@ if (media.paused) {
         x = e.pageX - offset.left;
         y = e.pageY - offset.top;
         canvas.toggleClass('hand', seed.hover(x, y));
-    });
+    });*/
+
+    canvas.click(function (e) {
+    var offset = canvas.offset(), x, y;
+    x = e.pageX - offset.left;
+    y = e.pageY - offset.top;
+
+    if (seed.hover(x, y)) {
+        hold = 0;
+        canvas.unbind("click");
+        canvas.unbind("mousemove");
+        canvas.removeClass('hand');
+
+        // 🔊 Reproducir el audio desde el corazón (semilla)
+        const media = document.getElementById("media");
+
+        let fakeBtn = document.createElement("button");
+        fakeBtn.style.display = "none";
+        document.body.appendChild(fakeBtn);
+
+        fakeBtn.addEventListener("click", () => {
+            media.play().then(() => {
+                console.log("✅ Música reproducida desde el corazón");
+            }).catch(err => {
+                console.log("❌ Error al reproducir:", err);
+            });
+        });
+
+        fakeBtn.click();
+        fakeBtn.remove(); // eliminar el botón oculto
+    }
+}).mousemove(function (e) {
+    var offset = canvas.offset(), x, y;
+    x = e.pageX - offset.left;
+    y = e.pageY - offset.top;
+    canvas.toggleClass('hand', seed.hover(x, y));
+});
 
     var seedAnimate = eval(Jscex.compile("async", function () {
         seed.draw();
