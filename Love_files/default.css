@@ -120,7 +120,7 @@ a {
   pointer-events: none;
   user-select: none;
   opacity: 1;
-  animation: desvanecer 5s ease-out forwards;
+  animation: desvanecer 10s ease-out forwards;
   white-space: nowrap;
   transform: translate(-50%, -50%);
 }
